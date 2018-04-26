@@ -27,7 +27,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Gvn-9r-2yk" userLabel="Detail">
                                 <rect key="frame" x="10" y="254" width="168" height="40"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qWs-8u-qqu">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile8" translatesAutoresizingMaskIntoConstraints="NO" id="qWs-8u-qqu">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="GIx-XK-9rP"/>
@@ -83,6 +83,13 @@
                         <viewLayoutGuide key="safeArea" id="txz-tB-rxD"/>
                     </view>
                     <navigationItem key="navigationItem" id="dnr-2J-orp"/>
+                    <connections>
+                        <outlet property="articleDate" destination="ZBp-fS-3g3" id="B7S-Lf-syA"/>
+                        <outlet property="articleImage" destination="atM-Xa-OcZ" id="DZh-yu-lsj"/>
+                        <outlet property="authorName" destination="EjS-Fp-tvN" id="8zc-Ga-oqe"/>
+                        <outlet property="followBtn" destination="LAL-xF-Kmv" id="01p-dg-edq"/>
+                        <outlet property="profileImage" destination="qWs-8u-qqu" id="POk-qS-Xir"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VZ-r5-oMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,5 +116,6 @@
     </scenes>
     <resources>
         <image name="article2" width="800" height="240"/>
+        <image name="profile8" width="200" height="200"/>
     </resources>
 </document>
