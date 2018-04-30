@@ -11,23 +11,35 @@ import UIKit
 class HomePageTableViewController: UITableViewController {
 
     let articles: [ArticleModel] = Data().articles
+    private var selectedArticle: ArticleModel?
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Articles"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableView.register(UINib(nibName: "FeaturedCell", bundle: nil), forCellReuseIdentifier: "cell1")
         tableView.register(UINib(nibName: "StandardCell", bundle: nil), forCellReuseIdentifier: "cell2")
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toArticlePage" {
+            let destinationVC  = segue.destination as! ArticleViewController
+            destinationVC.selectedArticle = selectedArticle
+        }
+    }
+
+
+}
+
+// MARK: Table view methods
+extension HomePageTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let article = articles[indexPath.row]
@@ -44,13 +56,12 @@ class HomePageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedArticle = articles[indexPath.row]
         performSegue(withIdentifier: "toArticlePage", sender: nil)
     }
- 
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.row == 0 ? 317 : 195
     }
-
-
+    
 }

@@ -22,6 +22,7 @@ class FeaturedCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.selectionStyle = .none
         cellBackground.layer.cornerRadius = 5.0
         articleImage.layer.cornerRadius = 3.0
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
